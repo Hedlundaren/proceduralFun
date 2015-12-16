@@ -59,7 +59,7 @@
 		    wireframe = false;
 
 		    var cameraPos = new THREE.Vector3(0);
-
+		    var sceneGraph = new THREE.Object3D();
 
 
 		window.addEventListener( 'load', function() {
@@ -78,12 +78,15 @@
 		    
 		    // create a scene
 		    scene = new THREE.Scene();
-
+		    scene.add(sceneGraph);
+		    sceneGraph.rotation.x = -Math.PI/2;
+		    sceneGraph.translateZ(-30);
 		    // create a camera the size of the browser window
 		    // and place it 100 units away, looking towards the center of the scene
 			camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 0.1, 10000 );
 		    
-		    camera.position.z = 100;
+		    camera.position.z = 200;
+		    camera.position.y = 20;
 
 		    //camera.target = new THREE.Vector3( 0, 0, 0 );
 
@@ -130,13 +133,13 @@
 		        new THREE.IcosahedronGeometry( 15, 2 ), 
 		        material 
 		    );
-		    mesh.translateY(15);
-		    scene.add( mesh );
+		   // mesh.translateY(15);
+		    sceneGraph.add( mesh );
 
 		    wall = new THREE.Mesh( new THREE.PlaneGeometry(300,300,300,300), material );
 		    wall.translateY(-20);
 		    //wall.rotation.x = -Math.PI/2;
-		    scene.add( wall );
+		    sceneGraph.add( wall );
 
 
 		    controls = new THREE.OrbitControls( camera, renderer.domElement );
