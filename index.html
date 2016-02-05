@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>WATER</title>
+        <title>Procedural Clouds</title>
         <meta charset="utf-8">
          <style>
         body{
@@ -69,8 +69,7 @@
 		     // create the renderer and attach it to the DOM
 		    renderer = new THREE.WebGLRenderer();
 		    renderer.setSize( window.innerWidth, window.innerHeight );
-			renderer.setClearColor ( 0xB3EAFF, 1 );
-			renderer.setClearColor ( 0x111111, 1 );
+			renderer.setClearColor ( 0xa2d9ee, 1 );
 
 		    
 		    container.appendChild( renderer.domElement );
@@ -124,17 +123,11 @@
 
 			
 		    
-		    // create a sphere and assign the material
-		    mesh = new THREE.Mesh( 
-		        new THREE.IcosahedronGeometry( 15, 2 ), 
-		        material 
-		    );
-		    mesh.translateY(15);
-		    scene.add( mesh );
+		
 
 		    wall = new THREE.Mesh( new THREE.PlaneGeometry(300,300,300,300), material );
-		    wall.translateY(-20);
-		    //wall.rotation.x = -Math.PI/2;
+		    wall.translateY(20);
+		    wall.rotation.x = Math.PI/2;
 		    scene.add( wall );
 
 
@@ -347,9 +340,8 @@
 
 		    vec3 ambient = 0.12 * vec3(0.3*(newPos.z+tester),0.6*(newPos.z+tester),0.7*(newPos.z+tester));
 		   	vec3 diffuse = vec3(kd*max(dot(lightPos,vecNormal), 0.0));
-		   	vec3 specular = vec3(ks*pow(max(dot(L,V), 0.0),2.0));
 
-		    gl_FragColor = vec4(ambient + diffuse + specular, 1.0 );
+		    gl_FragColor = vec4(ambient + diffuse, 1.0 );
 		}
 
     </script>
