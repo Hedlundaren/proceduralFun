@@ -85,7 +85,9 @@
 		    // and place it 100 units away, looking towards the center of the scene
 			camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 0.1, 10000 );
 		    
+
 		    camera.position.z = 150;
+
 		    camera.position.y = 20;
 
 		    //camera.target = new THREE.Vector3( 0, 0, 0 );
@@ -140,7 +142,9 @@
 		    sceneGraph.add( mesh );
 
 
+
 		    wall = new THREE.Mesh( new THREE.PlaneGeometry(160,100,160,100), material );
+
 		    //wall.rotation.x = -Math.PI/2;
 		    sceneGraph.add( wall );
 
