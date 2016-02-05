@@ -338,7 +338,7 @@
 		    vec3 V = normalize(cameraPos - newPos);
 		    vec3 L = normalize(lightPos - newPos);
 
-		    vec3 ambient = 0.12 * vec3(0.7*(newPos.z+tester),0.8*(newPos.z+tester),0.9*(newPos.z+tester));
+		    vec3 ambient = 0.12 * vec3(0.8*(newPos.z+tester),0.9*(newPos.z+tester),1.0*(newPos.z+tester));
 		   	
 		   	vec3 diffuse = vec3(kd*max(dot(lightPos,vecNormal), 0.0));
 
